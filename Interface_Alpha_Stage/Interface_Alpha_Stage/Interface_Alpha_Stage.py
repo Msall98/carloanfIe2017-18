@@ -16,13 +16,15 @@ class carloangui(BoxLayout):
     pass
 
     def __init__(self, **kwargs):
+        global wimg
         super(carloangui,self).__init__(**kwargs)
         print('The button <%s> is being pressed')
-        wimg= Image(source='C:\\Users\\SIM\\Desktop\\3.jpg')
+        wimg= Image(source='C:\\Users\\SIM\\Desktop\\3.jpg',
+                    )
         self.add_widget(wimg)
         btn1 = Button(text='Hello world 1',
                       background_color=(0, 0, 1, 1),
-                      pos=(200,50),
+                      pos=(500,50),
                       size_hint=(.1,.1))
         btn1.bind(on_press=self.clk)
         self.add_widget(btn1)
@@ -40,6 +42,17 @@ class carloangui(BoxLayout):
                size_hint=(None,None),
                size=(400,400))
         popup.open()
+        popup2=Popup(title="test",
+                     content=Label(text="Hi"),
+                     size_hint=(None,None),
+                     size=(400,400))
+        popup2.open()
+        btn1 = Button(text='Testing',
+                      background_color=(0, 0, 1, 1),
+                      pos=(500,50),
+                      size_hint=(.1,.1))
+        btn1.bind(on_press=self.clk)
+        self.remove_widget(wimg)
     def quit(self,obj):
         sys.exit()
 
