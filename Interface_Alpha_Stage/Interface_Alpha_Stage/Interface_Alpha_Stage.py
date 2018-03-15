@@ -4,6 +4,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.app import App
 from kivy.uix.label import Label
 from kivy.uix.button import Button
+from kivy.uix.popup import Popup
 kivy.require('1.0.6') # replace with your current kivy version !
 
 
@@ -23,6 +24,11 @@ class carloangui(BoxLayout):
         self.add_widget(btn2)
     def clk(self,obj):
         print("Hello,World")
+        popup=Popup(title="Test",
+               content=Label(text="Hello,world"),
+               size_hint=(None,None),
+               size=(400,400))
+        popup.open()
     def quit(self,obj):
         sys.exit()
 
