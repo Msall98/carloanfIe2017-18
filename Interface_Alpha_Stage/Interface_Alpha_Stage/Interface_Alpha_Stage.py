@@ -8,19 +8,32 @@ from kivy.uix.button import Button
 from kivy.uix.popup import Popup
 from kivy.uix.image import Image
 from kivy.uix.textinput import TextInput
+from kivy.lang.builder import Builder
 kivy.require('1.0.6') # replace with your current kivy version !
+Builder.load_string('''
+<-FullImage>:
+    canvas:
+        Color:
+            rgb: (1, 1, 1)
+        Rectangle:
+            texture: self.texture
+            size: self.width + 20, self.height + 20
+            pos: self.x - 10, self.y - 10
+''')
 
 class FullImage(Image):
     pass
-
 class carloangui(BoxLayout):
     pass
 
     def __init__(self, **kwargs):
+        
         global wimg
         super(carloangui,self).__init__(**kwargs)
         print('The button <%s> is being pressed')
-        
+        wimg= Image(source='C:\\Users\\SIM\\Desktop\\3.jpg',
+                    )
+        self.add_widget(wimg)
         btn1 = Button(text='Hello world 1',
                       background_color=(0, 0, 1, 1),
                       pos=(500,50),
@@ -65,6 +78,7 @@ class carloangui(BoxLayout):
                       pos=(500,50),
                       size_hint=(.1,.1))
         btn1.bind(on_press=self.clk)
+        self.remove_widget(wimg)
     def quit(self,obj):
         sys.exit()
 
