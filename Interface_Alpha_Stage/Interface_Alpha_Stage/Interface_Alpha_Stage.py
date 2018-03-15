@@ -11,14 +11,20 @@ from kivy.uix.textinput import TextInput
 from kivy.lang.builder import Builder
 kivy.require('1.0.6') # replace with your current kivy version !
 Builder.load_string('''
-<-FullImage>:
+<Image>:
     canvas:
         Color:
             rgb: (1, 1, 1)
         Rectangle:
             texture: self.texture
-            size: self.width + 20, self.height + 20
-            pos: self.x - 10, self.y - 10
+            size: self.width -100, self.height + 0
+            pos: self.x + 0, self.y - 0
+
+<TextInput>:
+    name: 'textinput'
+    AnchorLayout:
+        anchor_x: 'center'
+        anchor_y: 'center'
 ''')
 
 class FullImage(Image):
