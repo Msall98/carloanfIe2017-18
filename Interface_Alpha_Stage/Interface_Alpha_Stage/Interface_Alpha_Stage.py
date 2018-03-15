@@ -1,12 +1,16 @@
 import sys
+import math
 import kivy
 from kivy.uix.boxlayout import BoxLayout
 from kivy.app import App
 from kivy.uix.label import Label
 from kivy.uix.button import Button
 from kivy.uix.popup import Popup
+from kivy.uix.image import Image
 kivy.require('1.0.6') # replace with your current kivy version !
 
+class FullImage(Image):
+    pass
 
 class carloangui(BoxLayout):
     pass
@@ -14,14 +18,21 @@ class carloangui(BoxLayout):
     def __init__(self, **kwargs):
         super(carloangui,self).__init__(**kwargs)
         print('The button <%s> is being pressed')
-
+        wimg= Image(source='C:\\Users\\SIM\\Desktop\\3.jpg')
+        self.add_widget(wimg)
         btn1 = Button(text='Hello world 1',
-                      background_color=(0, 0, 1, 1))
+                      background_color=(0, 0, 1, 1),
+                      pos=(200,50),
+                      size_hint=(.1,.1))
         btn1.bind(on_press=self.clk)
         self.add_widget(btn1)
-        btn2 = Button(text='Kill')
+        btn2 = Button(text='Kill',
+                      pos=(50,200),
+                      size_hint=(.1,.1))
         btn2.bind(on_press=self.quit)
         self.add_widget(btn2)
+        
+        
     def clk(self,obj):
         print("Hello,World")
         popup=Popup(title="Test",
