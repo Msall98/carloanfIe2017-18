@@ -7,27 +7,39 @@ from kivy.uix.label import Label
 from kivy.uix.button import Button
 from kivy.uix.popup import Popup
 from kivy.uix.image import Image
+from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.gridlayout import GridLayout
 from kivy.uix.textinput import TextInput
+from kivy.properties import ObjectProperty
 from kivy.lang.builder import Builder
 kivy.require('1.0.6') # replace with your current kivy version !
 Builder.load_string('''
-<Image>:
-    canvas:
-        Color:
-            rgb: (1, 1, 1)
-        Rectangle:
-            texture: self.texture
-            size: self.width -100, self.height + 0
-            pos: self.x + 0, self.y - 0
+<CustomLayout>
+    canvas.before:
+        BorderImage:
+            # BorderImage behaves like the CSS BorderImage
+            border: 00, 00, 00, 00
+            texture: self.background_image.texture
+            pos: self.pos
+            size: self.size
+
+<RootWidget>
+    CustomLayout:
+
+        pos_hint: {'center_x': .5, 'center_y': .5}
+        rows:1         
+                      
 
 <TextInput>:
-    name: 'textinput'
     AnchorLayout:
         anchor_x: 'center'
         anchor_y: 'center'
 ''')
 
-class FullImage(Image):
+class CustomLayout(GridLayout):
+
+    background_image = ObjectProperty(Image(source='C:\\Users\\SIM\\Desktop\\3.jpg'))
+class RootWidget(FloatLayout):
     pass
 class carloangui(BoxLayout):
     pass
@@ -37,9 +49,6 @@ class carloangui(BoxLayout):
         global wimg
         super(carloangui,self).__init__(**kwargs)
         print('The button <%s> is being pressed')
-        wimg= Image(source='C:\\Users\\SIM\\Desktop\\3.jpg',
-                    )
-        self.add_widget(wimg)
         btn1 = Button(text='Hello world 1',
                       background_color=(0, 0, 1, 1),
                       pos=(500,50),
@@ -58,6 +67,8 @@ class carloangui(BoxLayout):
                       size_hint=(.1,.1))
         btn3.bind(on_press=self.gclk)
         self.add_widget(btn3)
+        
+
         
     def gclk(self,btn):
         print(self.txt1.text)
@@ -84,7 +95,7 @@ class carloangui(BoxLayout):
                       pos=(500,50),
                       size_hint=(.1,.1))
         btn1.bind(on_press=self.clk)
-        self.remove_widget(wimg)
+        
     def quit(self,obj):
         sys.exit()
 
@@ -93,7 +104,7 @@ class carloangui(BoxLayout):
 class open(App):
     def build(self):
         cl=carloangui()
-        return cl
+        return RootWidget()
 
 if __name__ == '__main__':
     open().run()
