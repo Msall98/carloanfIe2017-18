@@ -7,6 +7,7 @@ from kivy.uix.label import Label
 from kivy.uix.button import Button
 from kivy.uix.popup import Popup
 from kivy.uix.image import Image
+from kivy.uix.textinput import TextInput
 kivy.require('1.0.6') # replace with your current kivy version !
 
 class FullImage(Image):
@@ -19,9 +20,7 @@ class carloangui(BoxLayout):
         global wimg
         super(carloangui,self).__init__(**kwargs)
         print('The button <%s> is being pressed')
-        wimg= Image(source='C:\\Users\\SIM\\Desktop\\3.jpg',
-                    )
-        self.add_widget(wimg)
+        
         btn1 = Button(text='Hello world 1',
                       background_color=(0, 0, 1, 1),
                       pos=(500,50),
@@ -33,7 +32,21 @@ class carloangui(BoxLayout):
                       size_hint=(.1,.1))
         btn2.bind(on_press=self.quit)
         self.add_widget(btn2)
+        self.txt1 = TextInput(text='', multiline=False)
+        self.add_widget(self.txt1)
+        btn3 =Button(text='Show',
+                      pos=(300,200),
+                      size_hint=(.1,.1))
+        btn3.bind(on_press=self.gclk)
+        self.add_widget(btn3)
         
+    def gclk(self,btn):
+        print(self.txt1.text)
+        popup=Popup(title="Test",
+               content=Label(text=self.txt1.text),
+               size_hint=(None,None),
+               size=(400,400))
+        popup.open()
         
     def clk(self,obj):
         print("Hello,World")
@@ -52,7 +65,6 @@ class carloangui(BoxLayout):
                       pos=(500,50),
                       size_hint=(.1,.1))
         btn1.bind(on_press=self.clk)
-        self.remove_widget(wimg)
     def quit(self,obj):
         sys.exit()
 
