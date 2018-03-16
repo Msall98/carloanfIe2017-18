@@ -12,6 +12,7 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.textinput import TextInput
 from kivy.properties import ObjectProperty
 from kivy.lang.builder import Builder
+from kivy.uix.anchorlayout import AnchorLayout
 kivy.require('1.0.6') # replace with your current kivy version !
 Builder.load_string('''
 <CustomLayout>
