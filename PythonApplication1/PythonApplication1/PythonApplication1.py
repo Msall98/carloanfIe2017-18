@@ -63,8 +63,9 @@ class LoanCalculator:
         if (a<= 10 or b<=0 or c<=1):
             popup=tk.Tk()
             popup.wm_title("Insufficent Amount")
+            popup.geometry("500x200")
             label = ttk.Label(popup,text="Seriously")
-            label.pack(pady=10)
+            label.pack(pady=10,anchor=CENTER)
             B1 = ttk.Button(popup,text="okay",command = popup.destroy)
             B1.pack()
             popup.mainloop()
