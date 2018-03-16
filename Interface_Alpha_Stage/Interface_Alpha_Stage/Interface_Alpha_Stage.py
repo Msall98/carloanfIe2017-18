@@ -32,15 +32,16 @@ Builder.load_string('''
                       
 
 <TextInput>:
-    AnchorLayout:
-        anchor_x: 'center'
-        anchor_y: 'center'
+    Button:
+        text: 'Button normal'
 ''')
 
 class CustomLayout(GridLayout):
 
     background_image = ObjectProperty(Image(source='C:\\Users\\SIM\\Desktop\\3.jpg'))
-class RootWidget(FloatLayout):
+class RootWidget(BoxLayout):
+    pass
+class TextInput(BoxLayout):
     pass
 class carloangui(BoxLayout):
     pass
@@ -61,8 +62,7 @@ class carloangui(BoxLayout):
                       size_hint=(.1,.1))
         btn2.bind(on_press=self.quit)
         self.add_widget(btn2)
-        self.txt1 = TextInput(text='', multiline=False)
-        self.add_widget(self.txt1)
+        
         btn3 =Button(text='Show',
                       pos=(300,200),
                       size_hint=(.1,.1))
@@ -106,6 +106,7 @@ class open(App):
     def build(self):
         cl=carloangui()
         return RootWidget()
+        return TextInput()
 
 if __name__ == '__main__':
     open().run()
