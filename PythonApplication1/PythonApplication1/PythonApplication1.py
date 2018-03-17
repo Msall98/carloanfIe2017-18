@@ -18,6 +18,8 @@ class LoanCalculator:
             column = 1, sticky = W)
         Label(window, text = "test5").grid(row = 5, 
             column = 1, sticky = W)
+        Label(window,text="test6").grid(row=6,
+            column=1,sticky= W)
         
         self.annualInterestRateVar = StringVar()
         Entry(window, textvariable = self.annualInterestRateVar, 
@@ -37,9 +39,15 @@ class LoanCalculator:
         lblTotalPayment = Label(window, textvariable = 
             self.totalPaymentVar).grid(row = 5, 
                 column = 2, sticky = E)
+        self.carloanlist=["One","Two"]
+        self.carloan = StringVar()
+        self.carloan.set(self.carloanlist[0])
+        self.carloanomenu=OptionMenu(window,self.carloan,*self.carloanlist)
+        self.carloanomenu.grid(row=6,column=2)
         btComputePayment = Button(window, text = "Compute Payment", 
             command = self.computePayment).grid(
-                row = 6, column = 2, sticky = E)
+                row = 7, column = 2, sticky = E)
+        killswitch=Button(window,text="Quit",).grid(row=7,column=3,sticky=E)
         
         window.mainloop() # Create an event loop
     def pop(self):
@@ -54,13 +62,15 @@ class LoanCalculator:
         totalPayment = float(self.monthlyPaymentVar.get()) * 12 \
             * int(self.numberOfYearsVar.get())
         self.totalPaymentVar.set(format(totalPayment, '10.2f'))
+        print(self.carloanlist)
+        
         
     def getMonthlyPayment(self,
             loanAmount, monthlyInterestRate, numberOfYears):
         a=int(loanAmount)
         b=int(monthlyInterestRate)
         c=int(numberOfYears)
-        if (a<= 10 or b<=0 or c<=1):
+        if (a<= 10 or c<=1):
             popup=tk.Tk()
             popup.wm_title("Insufficent Amount")
             popup.geometry("500x200")
