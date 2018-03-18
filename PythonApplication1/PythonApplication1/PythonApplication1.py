@@ -39,19 +39,32 @@ class LoanCalculator:
         lblTotalPayment = Label(window, textvariable = 
             self.totalPaymentVar).grid(row = 5, 
                 column = 2, sticky = E)
-        self.carloanlist=["One","Two"]
+        
+        showcarselection = Label(window,textvariable = "Test").grid(row=6,column=2,sticky = E)
+        self.carloanlist=["National Car","Test"]
         self.carloan = StringVar()
         self.carloan.set(self.carloanlist[0])
         self.carloanomenu=OptionMenu(window,self.carloan,*self.carloanlist)
-        self.carloanomenu.grid(row=6,column=2)
+        self.carloanomenu.grid(row=7,column=2)
         btComputePayment = Button(window, text = "Compute Payment", 
-            command = self.computePayment).grid(
-                row = 7, column = 2, sticky = E)
-        killswitch=Button(window,text="Quit",).grid(row=7,column=3,sticky=E)
+            command = self.maininput).grid(
+                row = 8, column = 2, sticky = E)
+        killswitch=Button(window,text="Quit",command=self.killswitch).grid(row=8,column=3,sticky=E)
         
         window.mainloop() # Create an event loop
+    def maininput(self):
+        self.getcarselection()
+        self.computePayment()
+    def getcarselection(self):
+        a=self.carloan.get()
+        if a.upper() == ("TEST"):
+            print("Fuck you")
+        else:
+            print("Thanks for choosing a ",a,"Brand")
     def pop(self):
         print("Hi")
+    def killswitch(self):
+        sys.exit()
         
     def computePayment(self):
         monthlyPayment = self.getMonthlyPayment(
@@ -63,8 +76,7 @@ class LoanCalculator:
             * int(self.numberOfYearsVar.get())
         self.totalPaymentVar.set(format(totalPayment, '10.2f'))
         print(self.carloanlist)
-        
-        
+            
     def getMonthlyPayment(self,
             loanAmount, monthlyInterestRate, numberOfYears):
         a=int(loanAmount)
