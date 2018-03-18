@@ -8,7 +8,7 @@ class LoanCalculator:
         self.window.title("Car Loan Calculator") # Set title
         self.window.geometry('500x400')
 
-        
+        # Make some labels in grid form.
         Label(self.window, text = "Test1").grid(row = 1, 
             column = 1, sticky = W)
         Label(self.window, text = "test2").grid(row = 2, 
@@ -22,6 +22,7 @@ class LoanCalculator:
         Label(self.window,text="test6").grid(row=6,
             column=1,sticky= W)
         
+        #Make some TextBox to allow user to type in stuff.
         self.annualInterestRateVar = StringVar()
         Entry(self.window, textvariable = self.annualInterestRateVar, 
             justify = RIGHT).grid(row = 1, column = 2)
@@ -32,6 +33,7 @@ class LoanCalculator:
         Entry(self.window, textvariable = self.loanAmountVar, 
             justify = RIGHT).grid(row = 3, column = 2)
         
+        #Some Labels and OptionBox.
         self.monthlyPaymentVar = StringVar()
         lblMonthlyPayment = Label(self.window, textvariable = 
             self.monthlyPaymentVar).grid(row = 4, column = 2, 
@@ -59,8 +61,7 @@ class LoanCalculator:
         else:
             self.carloanlistb=["Honda Civic"]
             self.carlonmenub=OptionMenu(self.window,self.carloanb,*self.carloanlistb).grid(row=8,column=2)
-
-
+        #Of Course, Some Buttons :) ...
         btComputePayment = Button(self.window, text = "Compute Payment", 
             command = self.maininput).grid(
                 row = 9, column = 2, sticky = E)
@@ -68,34 +69,40 @@ class LoanCalculator:
         
         self.window.mainloop() # Create an event loop
     def maininput(self):
+        #To Combine Two Function as One.
         self.getcarselection()
         self.computePayment()
     def getcarselection(self):
+        #To read the data from the first OptionMenu and reply.
         a=self.carloan.get()
         if a.upper() == ("TEST"):
             print("Fuck you")
         else:
             print("Thanks for choosing a ",a,"Brand")
     def updatesecondoptionbox(self,national):
+        #To Change data after knows the value selected from the first OptionMenu.
         b = self.carloan.get()
-        national=0
+        national=1
         self.carloanb = StringVar()
         if b.upper()=="NATIONAL CAR":
             self.carloanlistb=["Proton Saga"]
             self.carlonmenub=OptionMenu(self.window,self.carloanb,*self.carloanlistb).grid(row=8,column=2)
             national=1
-            return national
+            return int(national)
         else:
             self.carloanlistb=["Honda Civic"]
             self.carlonmenub=OptionMenu(self.window,self.carloanb,*self.carloanlistb).grid(row=8,column=2)
-            national="0"
+            national=0
             return int(national)
     def pop(self):
+        #Extra Stuff.
         print("Hi")
     def killswitch(self):
+        #As the function said :) ...
         sys.exit()
         
     def computePayment(self):
+        #Test algorithms.
         monthlyPayment = self.getMonthlyPayment(
             float(self.loanAmountVar.get()), 
             float(self.annualInterestRateVar.get()) / 1200, 
@@ -108,6 +115,7 @@ class LoanCalculator:
             
     def getMonthlyPayment(self,
             loanAmount, monthlyInterestRate, numberOfYears):
+        #Spam Detectors.
         a=int(loanAmount)
         b=int(monthlyInterestRate)
         c=int(numberOfYears)
@@ -117,7 +125,7 @@ class LoanCalculator:
             popup.geometry("500x200")
             label = ttk.Label(popup,text="Seriously")
             label.pack(pady=10,anchor=CENTER)
-            B1 = ttk.Button(popup,text="okay",command = popup.destroy)
+            B1 = ttk.Button(popup,text="OK",command = popup.destroy)
             B1.pack()
             popup.mainloop()
         else:
