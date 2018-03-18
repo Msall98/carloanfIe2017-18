@@ -46,10 +46,19 @@ class LoanCalculator:
         self.carloan.set(self.carloanlist[0])
         self.carloanomenu=OptionMenu(window,self.carloan,*self.carloanlist)
         self.carloanomenu.grid(row=7,column=2)
+        self.carloanb = StringVar()
+        b = self.carloan.get()
+        if b.upper()=="NATIONAL CAR":
+            self.carloanlistb=["Proton Saga"]
+            self.carlonmenub=OptionMenu(window,self.carloanb,*self.carloanlistb).grid(row=8,column=2)
+        else:
+            self.carloanlistb=["Honda Civic"]
+            self.carlonmenub=OptionMenu(window,self.carloanb,*self.carloanlistb).grid(row=8,column=2)
+
         btComputePayment = Button(window, text = "Compute Payment", 
             command = self.maininput).grid(
-                row = 8, column = 2, sticky = E)
-        killswitch=Button(window,text="Quit",command=self.killswitch).grid(row=8,column=3,sticky=E)
+                row = 9, column = 2, sticky = E)
+        killswitch=Button(window,text="Quit",command=self.killswitch).grid(row=9,column=3,sticky=E)
         
         window.mainloop() # Create an event loop
     def maininput(self):
