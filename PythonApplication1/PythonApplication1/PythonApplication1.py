@@ -6,8 +6,8 @@ class LoanCalculator:
     def __init__(self):
         self.window = Tk() # Create a self.window
         self.window.title("Car Loan Calculator") # Set title
-        self.window.geometry('500x400')
-
+        self.window.geometry('300x250')
+        self.window.resizable(False,False)
         # Make some labels in grid form.
         Label(self.window, text = "Test1").grid(row = 1, 
             column = 1, sticky = W)
@@ -44,7 +44,7 @@ class LoanCalculator:
                 column = 2, sticky = E)
         showcarselection = Label(self.window,textvariable = "Test").grid(row=6,column=2,sticky = E)
         
-        self.carloanlist=["National Car","Test"]
+        self.carloanlist=["National Car","Foreign car"]
         self.carloan = StringVar()
         self.carloan.set(self.carloanlist[0])
         global national
@@ -52,20 +52,16 @@ class LoanCalculator:
         # Quote from Jonathan Goh,The Cat ==> "This is error one: self.carloan.trace("w",self.updatesecondoptionbox(national))"
         self.carloan.trace("w",lambda *args: self.updatesecondoptionbox(national)) # Jonathan Goh ==> "This is correct."
         self.carloanomenu=OptionMenu(self.window,self.carloan,*self.carloanlist)
-        self.carloanomenu.grid(row=7,column=2)
+        self.carloanomenu.grid(row=6,column=2)
         self.carloanb = StringVar()
         a=self.carloan.get()
-        if self.carloan=="National Car":
-            self.carloanlistb=["Proton Saga"]
-            self.carlonmenub=OptionMenu(self.window,self.carloanb,*self.carloanlistb).grid(row=8,column=2)
-        else:
-            self.carloanlistb=["Honda Civic"]
-            self.carlonmenub=OptionMenu(self.window,self.carloanb,*self.carloanlistb).grid(row=8,column=2)
+        self.carloanlistb=["Proton Saga"]
+        self.carlonmenub=OptionMenu(self.window,self.carloanb,*self.carloanlistb).grid(row=7,column=2)
         #Of Course, Some Buttons :) ...
         btComputePayment = Button(self.window, text = "Compute Payment", 
             command = self.maininput).grid(
-                row = 9, column = 2, sticky = E)
-        killswitch=Button(self.window,text="Quit",command=self.killswitch).grid(row=9,column=3,sticky=E)
+                row = 8, column = 2, sticky = E)
+        killswitch=Button(self.window,text="Quit",command=self.killswitch).grid(row=8,column=3,sticky=E)
         
         self.window.mainloop() # Create an event loop
     def maininput(self):
@@ -75,7 +71,7 @@ class LoanCalculator:
     def getcarselection(self):
         #To read the data from the first OptionMenu and reply.
         a=self.carloan.get()
-        if a.upper() == ("TEST"):
+        if a.upper() == ("FOREIGN CAR"):
             print("Fuck you")
         else:
             print("Thanks for choosing a ",a,"Brand")
@@ -86,12 +82,12 @@ class LoanCalculator:
         self.carloanb = StringVar()
         if b.upper()=="NATIONAL CAR":
             self.carloanlistb=["Proton Saga"]
-            self.carlonmenub=OptionMenu(self.window,self.carloanb,*self.carloanlistb).grid(row=8,column=2)
+            self.carlonmenub=OptionMenu(self.window,self.carloanb,*self.carloanlistb).grid(row=7,column=2)
             national=1
             return int(national)
         else:
-            self.carloanlistb=["Honda Civic"]
-            self.carlonmenub=OptionMenu(self.window,self.carloanb,*self.carloanlistb).grid(row=8,column=2)
+            self.carloanlistb=["Honda Civic","Toyota Vios"]
+            self.carlonmenub=OptionMenu(self.window,self.carloanb,*self.carloanlistb).grid(row=7,column=2)
             national=0
             return int(national)
     def pop(self):
