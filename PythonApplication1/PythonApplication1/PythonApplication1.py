@@ -6,12 +6,12 @@ class LoanCalculator:
     def __init__(self):
         self.window = Tk() # Create a self.window
         self.window.title("Car Loan Calculator") # Set title
-        self.window.geometry('300x250')
+        self.window.geometry('500x250')
         self.window.resizable(False,False)
         # Make some labels in grid form.
-        Label(self.window, text = "Test1").grid(row = 1, 
+        Label(self.window, text = "Collection Data (DD,MM,YYYY").grid(row = 1, 
             column = 1, sticky = W)
-        Label(self.window, text = "test2").grid(row = 2, 
+        Label(self.window, text = "Return Data (DD,MM,YYYY)").grid(row = 2, 
             column = 1, sticky = W)
         Label(self.window, text = "test3").grid(row = 3, 
             column = 1, sticky = W)
