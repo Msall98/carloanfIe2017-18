@@ -9,7 +9,7 @@ class LoanCalculator:
         self.window.geometry('500x250')
         self.window.resizable(False,False)
         # Make some labels in grid form.
-        Label(self.window, text = "Collection Data (DD,MM,YYYY").grid(row = 1, 
+        Label(self.window, text = "Collection Data (DD,MM,YYYY)").grid(row = 1, 
             column = 1, sticky = W)
         Label(self.window, text = "Return Data (DD,MM,YYYY)").grid(row = 2, 
             column = 1, sticky = W)
@@ -55,13 +55,13 @@ class LoanCalculator:
         self.carloanomenu.grid(row=6,column=2)
         self.carloanb = StringVar()
         a=self.carloan.get()
-        self.carloanlistb=["Proton Saga"]
+        self.carloanlistb=[" "]
         self.carlonmenub=OptionMenu(self.window,self.carloanb,*self.carloanlistb).grid(row=7,column=2)
         #Of Course, Some Buttons :) ...
         btComputePayment = Button(self.window, text = "Compute Payment", 
             command = self.maininput).grid(
-                row = 8, column = 2, sticky = E)
-        killswitch=Button(self.window,text="Quit",command=self.killswitch).grid(row=8,column=3,sticky=E)
+                row = 8, column = 2)
+        killswitch=Button(self.window,text="Quit",command=self.killswitch).grid(row=8,column=3)
         
         self.window.mainloop() # Create an event loop
     def maininput(self):
@@ -81,12 +81,12 @@ class LoanCalculator:
         national=1
         self.carloanb = StringVar()
         if b.upper()=="NATIONAL CAR":
-            self.carloanlistb=["Proton Saga"]
+            self.carloanlistb=["Proton Saga (1.3cc) (RM135/day)"]
             self.carlonmenub=OptionMenu(self.window,self.carloanb,*self.carloanlistb).grid(row=7,column=2)
             national=1
             return int(national)
         else:
-            self.carloanlistb=["Honda Civic","Toyota Vios"]
+            self.carloanlistb=["Toyota Vios (1.5cc) (180/day)","Honda Civic (2.0cc) (300/day)","Hyundai Starex (2.5cc) (500/day)"]
             self.carlonmenub=OptionMenu(self.window,self.carloanb,*self.carloanlistb).grid(row=7,column=2)
             national=0
             return int(national)
