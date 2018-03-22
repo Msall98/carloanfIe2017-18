@@ -1,0 +1,8 @@
+Collection date:25.5.2018
+Return date    :9.6.2018
+Car model      :Toyota Vios (1.5cc)
+Deposit        :   300
+Rental Price   :   180x16
+***************************************
+Grand Total    :   3180
+***************************************
