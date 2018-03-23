@@ -17,9 +17,7 @@ class LoanCalculator:
             column = 1, sticky = W)
         Label(self.window, text = "test4").grid(row = 4, 
             column = 1, sticky = W)
-        Label(self.window, text = "test5").grid(row = 5, 
-            column = 1, sticky = W)
-        Label(self.window,text="test6").grid(row=6,
+        Label(self.window,text="test5").grid(row=5,
             column=1,sticky= W)
         
         #Make some TextBox to allow user to type in stuff.
@@ -29,20 +27,18 @@ class LoanCalculator:
         self.numberOfYearsVar = StringVar()
         Entry(self.window, textvariable = self.numberOfYearsVar, 
             justify = RIGHT).grid(row = 2, column = 2)
-        self.loanAmountVar = StringVar()
-        Entry(self.window, textvariable = self.loanAmountVar, 
-            justify = RIGHT).grid(row = 3, column = 2)
+      
         
         #Some Labels and OptionBox.
         self.monthlyPaymentVar = StringVar()
         lblMonthlyPayment = Label(self.window, textvariable = 
-            self.monthlyPaymentVar).grid(row = 4, column = 2, 
+            self.monthlyPaymentVar).grid(row = 3, column = 2, 
                 sticky = E)
         self.totalPaymentVar = StringVar()
         lblTotalPayment = Label(self.window, textvariable = 
-            self.totalPaymentVar).grid(row = 5, 
+            self.totalPaymentVar).grid(row = 4, 
                 column = 2, sticky = E)
-        showcarselection = Label(self.window,textvariable = "Test").grid(row=6,column=2,sticky = E)
+        showcarselection = Label(self.window,textvariable = "Test").grid(row=5,column=2,sticky = E)
         
         self.carloanlist=["National Car","Foreign car"]
         self.carloan = StringVar()
@@ -52,16 +48,17 @@ class LoanCalculator:
         # Quote from Jonathan Goh,The Cat ==> "This is error one: self.carloan.trace("w",self.updatesecondoptionbox(national))"
         self.carloan.trace("w",lambda *args: self.updatesecondoptionbox(national)) # Jonathan Goh ==> "This is correct."
         self.carloanomenu=OptionMenu(self.window,self.carloan,*self.carloanlist)
-        self.carloanomenu.grid(row=6,column=2)
+        self.carloanomenu.grid(row=5,column=2)
         self.carloanb = StringVar()
         a=self.carloan.get()
-        self.carloanlistb=[" "]
-        self.carlonmenub=OptionMenu(self.window,self.carloanb,*self.carloanlistb).grid(row=7,column=2)
+        self.carloanlistb=["Proton Saga (1.3cc) (RM135/day)"]
+        self.carlonmenub=OptionMenu(self.window,self.carloanb,*self.carloanlistb).grid(row=6,column=2)
         #Of Course, Some Buttons :) ...
         btComputePayment = Button(self.window, text = "Compute Payment", 
             command = self.maininput).grid(
-                row = 8, column = 2)
-        killswitch=Button(self.window,text="Quit",command=self.killswitch).grid(row=8,column=3)
+                row = 7, column = 2 ,)
+        killswitch=Button(self.window,text="Quit",command=self.killswitch).grid(
+            row=7,column=3,)
         
         self.window.mainloop() # Create an event loop
     def maininput(self):
@@ -82,12 +79,12 @@ class LoanCalculator:
         self.carloanb = StringVar()
         if b.upper()=="NATIONAL CAR":
             self.carloanlistb=["Proton Saga (1.3cc) (RM135/day)"]
-            self.carlonmenub=OptionMenu(self.window,self.carloanb,*self.carloanlistb).grid(row=7,column=2)
+            self.carlonmenub=OptionMenu(self.window,self.carloanb,*self.carloanlistb).grid(row=6,column=2)
             national=1
             return int(national)
         else:
             self.carloanlistb=["Toyota Vios (1.5cc) (180/day)","Honda Civic (2.0cc) (300/day)","Hyundai Starex (2.5cc) (500/day)"]
-            self.carlonmenub=OptionMenu(self.window,self.carloanb,*self.carloanlistb).grid(row=7,column=2)
+            self.carlonmenub=OptionMenu(self.window,self.carloanb,*self.carloanlistb).grid(row=6,column=2)
             national=0
             return int(national)
     def pop(self):
@@ -96,11 +93,11 @@ class LoanCalculator:
     def killswitch(self):
         #As the function said :) ...
         sys.exit()
+        self.window.destroy()
         
     def computePayment(self):
         #Test algorithms.
-        monthlyPayment = self.getMonthlyPayment(
-            float(self.loanAmountVar.get()), 
+        monthlyPayment = self.getMonthlyPayment( 
             float(self.annualInterestRateVar.get()) / 1200, 
             int(self.numberOfYearsVar.get()))
         self.monthlyPaymentVar.set(format(monthlyPayment, '10.2f'))
@@ -110,10 +107,9 @@ class LoanCalculator:
         print(self.carloanlist)
             
     def getMonthlyPayment(self,
-            loanAmount, monthlyInterestRate, numberOfYears):
+             monthlyInterestRate, numberOfYears):
         #Spam Detectors.
-        a=int(loanAmount)
-        b=int(monthlyInterestRate)
+        a=int(monthlyInterestRate)
         c=int(numberOfYears)
         if (a<= 10 or c<=1):
             popup=tk.Tk()
