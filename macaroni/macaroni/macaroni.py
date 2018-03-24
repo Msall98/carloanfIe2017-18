@@ -139,7 +139,7 @@ class LoanCalculator:
 
 
 def algorithm(d1,m1,y1,d2,m2,y2,rate1,model,carname,deposit):
-    if m1<1 or m1>12 or m2<1 or m2>12 or ((int(y1)%4)==0 and int(m1)==2 and (int(d1)<1 or int(d1)>29)) or ((int(y2)%4)==0 and int(m2)==2 and (int(d2)<1 or int(d2)>29)) or ((int(y1)%4)!=0 and int(m1)==2 and (int(d1)<1 or int(d1)>28)) or ((int(y2)%4)!=0 and int(m2)==2 and (int(d2)<1 or int(d2)>28)) or int(y1)<2000 or int(y1)>2100 or int(y2)<2000 or int(y2)>2100 or (str(m1) in ('1','3','5','7','8','10','12') and (int(d1)<1 or int(d1)>31)) or (str(m1) in ('4','6','9','11') and (int(d1)<1 or int(d1)>30)) or (str(m2) in ('1','3','5','7','8','10','12') and (int(d2)<1 or int(d2)>31)) or (str(m2) in ('4','6','9','11') and (int(d2)<1 or int(d2)>30)):
+    if int(m1)<1 or int(m1)>12 or int(m2)<1 or int(m2)>12 or ((int(y1)%4)==0 and int(m1)==2 and (int(d1)<1 or int(d1)>29)) or ((int(y2)%4)==0 and int(m2)==2 and (int(d2)<1 or int(d2)>29)) or ((int(y1)%4)!=0 and int(m1)==2 and (int(d1)<1 or int(d1)>28)) or ((int(y2)%4)!=0 and int(m2)==2 and (int(d2)<1 or int(d2)>28)) or int(y1)<2000 or int(y1)>2100 or int(y2)<2000 or int(y2)>2100 or (int(m1) in (1,3,5,7,8,10,12) and (int(d1)<1 or int(d1)>31)) or (int(m1) in (4,6,9,11) and (int(d1)<1 or int(d1)>30)) or (int(m2) in (1,3,5,7,8,10,12) and (int(d2)<1 or int(d2)>31)) or (int(m2) in (4,6,9,11) and (int(d2)<1 or int(d2)>30)):
         popup=tk.Tk()
         popup.wm_title("Invaild Data")
         popup.geometry("550x200")
