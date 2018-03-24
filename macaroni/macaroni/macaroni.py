@@ -162,7 +162,18 @@ class LoanCalculator:
 
 
 def algorithm(d1,m1,y1,d2,m2,y2,rate1,model,carname,deposit):
-    
+    if d1 >31 or d2>31 or m1>12 or m2> 12:
+        popup=tk.Tk()
+        popup.wm_title("Invaild Data")
+        popup.geometry("550x200")
+        label = ttk.Label(popup,text="Invalid time period, No month can more have 31 days and there only twele month in one year.")
+        label.pack(pady=10,anchor=CENTER)
+        B1 = ttk.Button(popup,text="OK",command = popup.destroy)
+        B1.pack()
+        popup.mainloop()
+    else:
+        print(" ")
+        
     dd1 = date(y1, m1, d1)
     dd2 = date(y2, m2, d2)
     time = dd2 - dd1
@@ -181,9 +192,19 @@ def algorithm(d1,m1,y1,d2,m2,y2,rate1,model,carname,deposit):
         history.write('Grand Total    :   '+str(grandtotal)+'\n')
         history.write('***************************************\n')
         history.close()
-        print('You wish to rent the',carname,'for',str(time.days+1),'day(s)\n')
+        popup=tk.Tk()
+        popup.wm_title("Thank you")
+        popup.geometry("500x200")
+        label_1 = ttk.Label(popup,text=("You wish to rent the " + carname + " for " + str(time.days+1) + " day(s)\n"))
+        label_1.pack(pady=10,anchor=CENTER)
+        label_2 = ttk.Label(popup,text=("The grand total would of renting the " + carname + " would be RM " + str(grandtotal)+ "\n"))
+        label_2.pack(pady=10,anchor=CENTER)
+        B1 = ttk.Button(popup,text="OK",command = popup.destroy)
+        B1.pack()
+        popup.mainloop()
+
         print('The grand total would of renting the',carname,'would be RM'+str(grandtotal)+'\n')
-        choice=input('To see Grand Total breakdown, press {Y}, or press any other button to escape\n')
+        choice=print('To see Grand Total breakdown, press {Y}, or press any other button to escape\n')
         if choice.isalpha()==True:
             if choice.upper()=='Y':
                 print('Deposit        :   ',deposit,'\n')
@@ -198,6 +219,14 @@ def algorithm(d1,m1,y1,d2,m2,y2,rate1,model,carname,deposit):
             print('Thank You for using ...')
 
     else:
+        popup=tk.Tk()
+        popup.wm_title("Invaild Date")
+        popup.geometry("500x200")
+        label = ttk.Label(popup,text="Invalid time period, maximum number of days of rental should be 30 days")
+        label.pack(pady=10,anchor=CENTER)
+        B1 = ttk.Button(popup,text="OK",command = popup.destroy)
+        B1.pack()
+        popup.mainloop()
         print('Invalid time period, maximum number of days of rental should be 30 days')
         
 
