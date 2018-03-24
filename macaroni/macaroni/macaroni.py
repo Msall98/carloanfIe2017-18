@@ -46,17 +46,8 @@ class LoanCalculator:
         Entry(self.window, textvariable = self.y2, 
             justify = LEFT).grid(row = 6, column = 2)
         
-        #Some Labels and OptionBox.
-        self.monthlyPaymentVar = StringVar()
-        lblMonthlyPayment = Label(self.window, textvariable = 
-            self.monthlyPaymentVar).grid(row = 4, column = 2, 
-                sticky = E)
-        self.totalPaymentVar = StringVar()
-        lblTotalPayment = Label(self.window, textvariable = 
-            self.totalPaymentVar).grid(row = 5, 
-                column = 2, sticky = E)
+        #OptionBox.
         showcarselection = Label(self.window,textvariable = "Test").grid(row=6,column=2,sticky = E)
-        
         self.carloanlist=["National Car","Foreign car"]
         self.carloan = StringVar()
         self.carloan.set(self.carloanlist[0])
@@ -109,13 +100,7 @@ class LoanCalculator:
             deposit=300
             model=4
             algorithm(d1,m1,y1,d2,m2,y2,rate1,model,carname,deposit)
-    def getcarselection(self):
-        #To read the data from the first OptionMenu and reply.
-        a=self.carloan.get()
-        if a.upper() == ("FOREIGN CAR"):
-            print("Fuck you")
-        else:
-            print("Thanks for choosing a ",a,"Brand")
+
     def updatesecondoptionbox(self,national):
         #To Change data after knows the value selected from the first OptionMenu.
         b = self.carloan.get()
@@ -134,26 +119,6 @@ class LoanCalculator:
     def pop(self):
         #Extra Stuff.
         print("Hi")        
-            
-    def getMonthlyPayment(self,
-            loanAmount, monthlyInterestRate, numberOfYears):
-        #Spam Detectors.
-        a=int(loanAmount)
-        b=int(monthlyInterestRate)
-        c=int(numberOfYears)
-        if (a<= 10 or c<=1):
-            popup=tk.Tk()
-            popup.wm_title("Insufficent Amount")
-            popup.geometry("500x200")
-            label = ttk.Label(popup,text="Seriously")
-            label.pack(pady=10,anchor=CENTER)
-            B1 = ttk.Button(popup,text="OK",command = popup.destroy)
-            B1.pack()
-            popup.mainloop()
-        else:
-            monthlyPayment = loanAmount * monthlyInterestRate / (1
-            - 1 / (1 + monthlyInterestRate) ** (numberOfYears * 12))
-            return monthlyPayment;
 
     
 
@@ -202,21 +167,6 @@ def algorithm(d1,m1,y1,d2,m2,y2,rate1,model,carname,deposit):
         B1 = ttk.Button(popup,text="OK",command = popup.destroy)
         B1.pack()
         popup.mainloop()
-
-        print('The grand total would of renting the',carname,'would be RM'+str(grandtotal)+'\n')
-        choice=print('To see Grand Total breakdown, press {Y}, or press any other button to escape\n')
-        if choice.isalpha()==True:
-            if choice.upper()=='Y':
-                print('Deposit        :   ',deposit,'\n')
-                print('Rental Price   :   ',rate,'x',time.days+1,'\n')
-                print('*************************\n')
-                print('Grand Total    :   ',grandtotal,'\n')
-                print('*************************\n')
-                print('Thank You for using ...')
-            else :
-                print('Thank You for using ...')
-        else :
-            print('Thank You for using ...')
 
     else:
         popup=tk.Tk()
