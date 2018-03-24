@@ -1,5 +1,168 @@
+from tkinter import * # Import tkinter
+from tkinter import ttk
 from datetime import date
-def algorithm(d1,m1,y1,d2,m2,y2,rate1,model,carname):
+import tkinter as tk    
+import sys 
+
+
+model = 1
+class LoanCalculator:
+    def __init__(self):
+        self.window = Tk() # Create a self.window
+        self.window.title("Car Loan Calculator") # Set title
+        self.window.geometry('500x250')
+        self.window.resizable(False,False)
+        # Make some labels in grid form.
+        Label(self.window, text = "Collection Data (DD)").grid(row = 1, 
+            column = 1, sticky = W)
+        Label(self.window, text = "Collection Data (MM)").grid(row = 2, 
+            column = 1, sticky = W)
+        Label(self.window, text = "Collection Data (YYYY)").grid(row = 3, 
+            column = 1, sticky = W)
+        Label(self.window, text = "Return Data (DD)").grid(row = 4, 
+            column = 1, sticky = W)
+        Label(self.window, text = "Return Data (MM)").grid(row = 5, 
+            column = 1, sticky = W)
+        Label(self.window,text="Return Data (YYYY)").grid(row=6,
+            column=1,sticky= W)
+        
+        #Make some TextBox to allow user to type in stuff.
+        self.d1 = IntVar()
+        Entry(self.window, textvariable = self.d1, 
+            justify = LEFT).grid(row = 1, column = 2)
+        self.m1 = IntVar()
+        Entry(self.window, textvariable = self.m1, 
+            justify = LEFT).grid(row = 2, column = 2)
+        self.y1 = IntVar()
+        Entry(self.window, textvariable = self.y1, 
+            justify = LEFT).grid(row = 3, column = 2)
+        self.d2 = IntVar()
+        Entry(self.window, textvariable = self.d2, 
+            justify = LEFT).grid(row = 4, column = 2)
+        self.m2 = IntVar()
+        Entry(self.window, textvariable = self.m2, 
+            justify = LEFT).grid(row = 5, column = 2)
+        self.y2 = IntVar()
+        Entry(self.window, textvariable = self.y2, 
+            justify = LEFT).grid(row = 6, column = 2)
+        
+        #Some Labels and OptionBox.
+        self.monthlyPaymentVar = StringVar()
+        lblMonthlyPayment = Label(self.window, textvariable = 
+            self.monthlyPaymentVar).grid(row = 4, column = 2, 
+                sticky = E)
+        self.totalPaymentVar = StringVar()
+        lblTotalPayment = Label(self.window, textvariable = 
+            self.totalPaymentVar).grid(row = 5, 
+                column = 2, sticky = E)
+        showcarselection = Label(self.window,textvariable = "Test").grid(row=6,column=2,sticky = E)
+        
+        self.carloanlist=["National Car","Foreign car"]
+        self.carloan = StringVar()
+        self.carloan.set(self.carloanlist[0])
+        global national
+        national=int(1)
+        # Quote from Jonathan Goh,The Cat ==> "This is error one: self.carloan.trace("w",self.updatesecondoptionbox(national))"
+        self.carloan.trace("w",lambda *args: self.updatesecondoptionbox(national)) # Jonathan Goh ==> "This is correct."
+        self.carloanomenu=OptionMenu(self.window,self.carloan,*self.carloanlist)
+        self.carloanomenu.grid(row=7,column=2)
+        self.carloanb = StringVar()
+        a=self.carloan.get()
+        self.carloanlistb=[" "]
+        self.carlonmenub=OptionMenu(self.window,self.carloanb,*self.carloanlistb).grid(row=8,column=2)
+        #Of Course, Some Buttons :) ...
+        btComputePayment = Button(self.window, text = "Compute Payment", 
+            command = self.maininput).grid(
+                row = 9, column = 2)
+        
+        self.window.mainloop() # Create an event loop
+    def maininput(self):
+        #To Combine Two Function as One.
+        selection=self.carloanb.get()
+        d1=self.d1.get()
+        m1=self.m1.get()
+        y1=self.y1.get()
+        d2=self.d2.get()
+        m2=self.m2.get()
+        y2=self.y2.get()
+        if selection == "Proton Saga (1.3cc) (RM135/day)":
+            carname='Proton Saga (1.3cc)'
+            rate1=135
+            deposit=100
+            model=1
+            algorithm(d1,m1,y1,d2,m2,y2,rate1,model,carname,deposit)
+        elif selection == "Toyota Vios (1.5cc) (180/day)":
+            carname='Toyota Vios (1.5cc)'
+            rate1=180
+            deposit=300
+            model=2
+            algorithm(d1,m1,y1,d2,m2,y2,rate1,model,carname,deposit)
+        elif selection == "Honda Civic (2.0cc) (300/day)":
+            carname='Honda Civic (2.0cc)'
+            rate1=300
+            deposit=300
+            model=3
+            algorithm(d1,m1,y1,d2,m2,y2,rate1,model,carname,deposit)
+        elif selection == "Hyundai Starex (2.5cc) (500/day)":
+            carname='Hyundai Starex (2.5cc)'
+            rate1=500
+            deposit=300
+            model=4
+            algorithm(d1,m1,y1,d2,m2,y2,rate1,model,carname,deposit)
+    def getcarselection(self):
+        #To read the data from the first OptionMenu and reply.
+        a=self.carloan.get()
+        if a.upper() == ("FOREIGN CAR"):
+            print("Fuck you")
+        else:
+            print("Thanks for choosing a ",a,"Brand")
+    def updatesecondoptionbox(self,national):
+        #To Change data after knows the value selected from the first OptionMenu.
+        b = self.carloan.get()
+        national=1
+        self.carloanb = StringVar()
+        if b.upper()=="NATIONAL CAR":
+            self.carloanlistb=["Proton Saga (1.3cc) (RM135/day)"]
+            self.carlonmenub=OptionMenu(self.window,self.carloanb,*self.carloanlistb).grid(row=8,column=2)
+            national=1
+            return int(national)
+        else:
+            self.carloanlistb=["Toyota Vios (1.5cc) (180/day)","Honda Civic (2.0cc) (300/day)","Hyundai Starex (2.5cc) (500/day)"]
+            self.carlonmenub=OptionMenu(self.window,self.carloanb,*self.carloanlistb).grid(row=8,column=2)
+            national=0
+            return int(national)
+    def pop(self):
+        #Extra Stuff.
+        print("Hi")        
+            
+    def getMonthlyPayment(self,
+            loanAmount, monthlyInterestRate, numberOfYears):
+        #Spam Detectors.
+        a=int(loanAmount)
+        b=int(monthlyInterestRate)
+        c=int(numberOfYears)
+        if (a<= 10 or c<=1):
+            popup=tk.Tk()
+            popup.wm_title("Insufficent Amount")
+            popup.geometry("500x200")
+            label = ttk.Label(popup,text="Seriously")
+            label.pack(pady=10,anchor=CENTER)
+            B1 = ttk.Button(popup,text="OK",command = popup.destroy)
+            B1.pack()
+            popup.mainloop()
+        else:
+            monthlyPayment = loanAmount * monthlyInterestRate / (1
+            - 1 / (1 + monthlyInterestRate) ** (numberOfYears * 12))
+            return monthlyPayment;
+
+    
+
+
+
+
+
+def algorithm(d1,m1,y1,d2,m2,y2,rate1,model,carname,deposit):
+    
     dd1 = date(y1, m1, d1)
     dd2 = date(y2, m2, d2)
     time = dd2 - dd1
@@ -27,6 +190,7 @@ def algorithm(d1,m1,y1,d2,m2,y2,rate1,model,carname):
                 print('Rental Price   :   ',rate,'x',time.days+1,'\n')
                 print('*************************\n')
                 print('Grand Total    :   ',grandtotal,'\n')
+                print('*************************\n')
                 print('Thank You for using ...')
             else :
                 print('Thank You for using ...')
@@ -38,49 +202,4 @@ def algorithm(d1,m1,y1,d2,m2,y2,rate1,model,carname):
         
 
 
-
-
-
-
-print('Please Enter the relevant dates:\n')
-print('Please Enter the collection date:\n')
-d1=int(input('Enter day   :  '))
-m1=int(input('Enter month :  '))
-y1=int(input('Enter year  :  '))
-print('Please Enter the return date:\n')
-d2=int(input('Enter day   :  '))
-m2=int(input('Enter month :  '))
-y2=int(input('Enter year  :  '))
-print('\n')
-model=int(input('Enter car model:'))
-print('\n')
-
-if model==1:
-    carname='Proton Saga (1.3cc)'
-    rate1=135
-    deposit=100
-    algorithm(d1,m1,y1,d2,m2,y2,rate1,model,carname)
-
-    
-elif model==2:
-    carname='Toyota Vios (1.5cc)'
-    rate1=180
-    deposit=300
-    algorithm(d1,m1,y1,d2,m2,y2,rate1,model,carname)
-    
-
-elif model==3:
-    carname='Honda Civic (2.0cc)'
-    rate1=300
-    deposit=300
-    algorithm(d1,m1,y1,d2,m2,y2,rate1,model,carname)
-    
-
-elif model==4:
-    carname='Hyundai Starex (2.5cc)'
-    rate1=500
-    deposit=300
-    algorithm(d1,m1,y1,d2,m2,y2,rate1,model,carname)
-
-else :
-    print('Invalid car model')
+LoanCalculator()# Create GUI
