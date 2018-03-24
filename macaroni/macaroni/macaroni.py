@@ -59,8 +59,9 @@ class LoanCalculator:
         self.carloanomenu.grid(row=7,column=2)
         self.carloanb = StringVar()
         a=self.carloan.get()
-        self.carloanlistb=[" "]
+        self.carloanlistb=["Proton Saga (1.3cc) (RM135/day)"]
         self.carlonmenub=OptionMenu(self.window,self.carloanb,*self.carloanlistb).grid(row=8,column=2)
+        self.carloanb.set(self.carloanlistb[0])
         #Of Course, Some Buttons :) ...
         btComputePayment = Button(self.window, text = "Compute Payment", 
             command = self.maininput).grid(
@@ -103,14 +104,13 @@ class LoanCalculator:
                 algorithm(d1,m1,y1,d2,m2,y2,rate1,model,carname,deposit)
         else:
             popup=tk.Tk()
-            popup.wm_title("Error:")
+            popup.wm_title("Invalid Data")
             popup.geometry("500x200")
-            label = ttk.Label(popup,text="Error : Only numbers allowed in dates")
+            label = ttk.Label(popup,text="Only numbers allowed in dates")
             label.pack(pady=10,anchor=CENTER)
             B1 = ttk.Button(popup,text="OK",command = popup.destroy)
             B1.pack()
             popup.mainloop()
-            print('Invalid time period, maximum number of days of rental should be 30 days')
         
 
     def updatesecondoptionbox(self,national):
@@ -141,9 +141,9 @@ class LoanCalculator:
 def algorithm(d1,m1,y1,d2,m2,y2,rate1,model,carname,deposit):
     if int(m1)<1 or int(m1)>12 or int(m2)<1 or int(m2)>12 or ((int(y1)%4)==0 and int(m1)==2 and (int(d1)<1 or int(d1)>29)) or ((int(y2)%4)==0 and int(m2)==2 and (int(d2)<1 or int(d2)>29)) or ((int(y1)%4)!=0 and int(m1)==2 and (int(d1)<1 or int(d1)>28)) or ((int(y2)%4)!=0 and int(m2)==2 and (int(d2)<1 or int(d2)>28)) or int(y1)<2000 or int(y1)>2100 or int(y2)<2000 or int(y2)>2100 or (int(m1) in (1,3,5,7,8,10,12) and (int(d1)<1 or int(d1)>31)) or (int(m1) in (4,6,9,11) and (int(d1)<1 or int(d1)>30)) or (int(m2) in (1,3,5,7,8,10,12) and (int(d2)<1 or int(d2)>31)) or (int(m2) in (4,6,9,11) and (int(d2)<1 or int(d2)>30)):
         popup=tk.Tk()
-        popup.wm_title("Invaild Data")
+        popup.wm_title("Invaild Date(s)")
         popup.geometry("550x200")
-        label = ttk.Label(popup,text="Invalid date(s)")
+        label = ttk.Label(popup,text="Invalid Date(s)")
         label.pack(pady=10,anchor=CENTER)
         B1 = ttk.Button(popup,text="OK",command = popup.destroy)
         B1.pack()
@@ -171,10 +171,10 @@ def algorithm(d1,m1,y1,d2,m2,y2,rate1,model,carname,deposit):
             popup=tk.Tk()
             popup.wm_title("Thank you")
             popup.geometry("500x200")
-            label_1 = ttk.Label(popup,text=("You wish to rent the " + carname + " for " + str(time.days+1) + " day(s)\n"))
+            label_1 = ttk.Label(popup,text=("You wish to rent the " + carname + " for " + str(time.days+1) + 
+                                            " day(s)\n"+ "The grand total would of renting the " + carname + " would be RM " + str(grandtotal)+ "\n" +
+                                            "The transction data is being saved in a text file named 'rental_history' . "))
             label_1.pack(pady=10,anchor=CENTER)
-            label_2 = ttk.Label(popup,text=("The grand total would of renting the " + carname + " would be RM " + str(grandtotal)+ "\n"))
-            label_2.pack(pady=10,anchor=CENTER)
             B1 = ttk.Button(popup,text="OK",command = popup.destroy)
             B1.pack()
             popup.mainloop()
@@ -182,7 +182,7 @@ def algorithm(d1,m1,y1,d2,m2,y2,rate1,model,carname,deposit):
         else:
             popup=tk.Tk()
             popup.wm_title("Invaild Date")
-            popup.geometry("500x200")
+            popup.geometry("550x200")
             label = ttk.Label(popup,text="Invalid time period, maximum number of days of rental should be 30 days")
             label.pack(pady=10,anchor=CENTER)
             B1 = ttk.Button(popup,text="OK",command = popup.destroy)
