@@ -51,7 +51,7 @@ class LoanCalculator:
         self.carloanlist=["National Car (RM 100 Deposit)","Foreign car (RM 300 Deposit)"]
         self.carloan = StringVar()
         self.carloan.set(self.carloanlist[0])
-        national=int(1)
+        national=1
         # Quote from Jonathan Goh,The Cat ==> "This is error one: self.carloan.trace("w",self.updatesecondoptionbox(national))"
         self.carloan.trace("w",lambda *args: self.updatesecondoptionbox(national)) # Jonathan Goh ==> "This is correct."
         self.carloanomenu=OptionMenu(self.window,self.carloan,*self.carloanlist)
@@ -101,6 +101,18 @@ class LoanCalculator:
                 deposit=300
                 model=4
                 algorithm(d1,m1,y1,d2,m2,y2,rate1,model,carname,deposit)
+        elif d1=='' or m1=='' or y1=='' or d2=='' or m2=='' or y2 =='':
+            popup=tk.Tk()
+            popup.wm_title("Invalid Data")
+            popup.geometry("550x200")
+            popup.resizable(False,False)
+            label = ttk.Label(popup,text="Missing Information(s)")
+            label.config(font=("Arial",13))
+            label.pack(pady=10,anchor=CENTER)
+            B1 = ttk.Button(popup,text="OK",command = popup.destroy)
+            B1.pack()
+            popup.mainloop()
+            
         else:
             popup=tk.Tk()
             popup.wm_title("Invalid Data")
@@ -124,7 +136,7 @@ class LoanCalculator:
             self.carlonmenub=OptionMenu(self.window,self.carloanb,*self.carloanlistb).grid(row=8,column=2)
             national=1
             return int(national)
-        else:
+        elif b=="Foreign car (RM 300 Deposit)":
             self.carloanlistb=["Toyota Vios (1.5cc) (RM180/day)","Honda Civic (2.0cc) (RM300/day)","Hyundai Starex (2.5cc) (RM500/day)"]
             self.carlonmenub=OptionMenu(self.window,self.carloanb,*self.carloanlistb).grid(row=8,column=2)
             national=0
