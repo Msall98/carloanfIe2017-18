@@ -86,3 +86,59 @@ Rental Price   :   135x1
 ***************************************
 Grand Total    :   235
 ***************************************
+Collection date:5.5.2018
+Return date    :5.5.2018
+Car model      :Toyota Vios (1.5cc)
+Deposit        :   300
+Rental Price   :   180x1
+***************************************
+Grand Total    :   480
+***************************************
+Collection date:5.5.2018
+Return date    :5.5.2018
+Car model      :Honda Civic (2.0cc)
+Deposit        :   300
+Rental Price   :   300x1
+***************************************
+Grand Total    :   600
+***************************************
+Collection date:5.5.2018
+Return date    :5.5.2018
+Car model      :Hyundai Starex (2.5cc)
+Deposit        :   300
+Rental Price   :   500x1
+***************************************
+Grand Total    :   800
+***************************************
+Collection date:5.5.2018
+Return date    :5.5.2018
+Car model      :Proton Saga (1.3cc)
+Deposit        :   100
+Rental Price   :   135x1
+***************************************
+Grand Total    :   235
+***************************************
+Collection date:5.5.2018
+Return date    :5.5.2018
+Car model      :Honda Civic (2.0cc)
+Deposit        :   300
+Rental Price   :   300x1
+***************************************
+Grand Total    :   600
+***************************************
+Collection date:5.5.2018
+Return date    :5.5.2018
+Car model      :Proton Saga (1.3cc)
+Deposit        :   100
+Rental Price   :   135x1
+***************************************
+Grand Total    :   235
+***************************************
+Collection date:5.5.2018
+Return date    :5.5.2018
+Car model      :Honda Civic (2.0cc)
+Deposit        :   300
+Rental Price   :   300x1
+***************************************
+Grand Total    :   600
+***************************************

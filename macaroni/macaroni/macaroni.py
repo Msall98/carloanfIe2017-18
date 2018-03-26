@@ -83,19 +83,19 @@ class LoanCalculator:
                 deposit=100
                 model=1
                 algorithm(d1,m1,y1,d2,m2,y2,rate1,model,carname,deposit)
-            elif selection == "Toyota Vios (1.5cc) (180/day)":
+            elif selection == "Toyota Vios (1.5cc) (RM180/day)":
                 carname='Toyota Vios (1.5cc)'
                 rate1=180
                 deposit=300
                 model=2
                 algorithm(d1,m1,y1,d2,m2,y2,rate1,model,carname,deposit)
-            elif selection == "Honda Civic (2.0cc) (300/day)":
+            elif selection == "Honda Civic (2.0cc) (RM300/day)":
                 carname='Honda Civic (2.0cc)'
                 rate1=300
                 deposit=300
                 model=3
                 algorithm(d1,m1,y1,d2,m2,y2,rate1,model,carname,deposit)
-            elif selection == "Hyundai Starex (2.5cc) (500/day)":
+            elif selection == "Hyundai Starex (2.5cc) (RM500/day)":
                 carname='Hyundai Starex (2.5cc)'
                 rate1=500
                 deposit=300
@@ -125,7 +125,7 @@ class LoanCalculator:
             national=1
             return int(national)
         else:
-            self.carloanlistb=["Toyota Vios (1.5cc) (180/day)","Honda Civic (2.0cc) (300/day)","Hyundai Starex (2.5cc) (500/day)"]
+            self.carloanlistb=["Toyota Vios (1.5cc) (RM180/day)","Honda Civic (2.0cc) (RM300/day)","Hyundai Starex (2.5cc) (RM500/day)"]
             self.carlonmenub=OptionMenu(self.window,self.carloanb,*self.carloanlistb).grid(row=8,column=2)
             national=0
             return int(national)
