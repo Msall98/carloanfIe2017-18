@@ -51,7 +51,6 @@ class LoanCalculator:
         self.carloanlist=["National Car (RM 100 Deposit)","Foreign car (RM 300 Deposit)"]
         self.carloan = StringVar()
         self.carloan.set(self.carloanlist[0])
-        global national
         national=int(1)
         # Quote from Jonathan Goh,The Cat ==> "This is error one: self.carloan.trace("w",self.updatesecondoptionbox(national))"
         self.carloan.trace("w",lambda *args: self.updatesecondoptionbox(national)) # Jonathan Goh ==> "This is correct."
@@ -105,8 +104,10 @@ class LoanCalculator:
         else:
             popup=tk.Tk()
             popup.wm_title("Invalid Data")
-            popup.geometry("500x200")
+            popup.geometry("550x200")
+            popup.resizable(False,False)
             label = ttk.Label(popup,text="Only numbers allowed in dates")
+            label.config(font=("Arial",13))
             label.pack(pady=10,anchor=CENTER)
             B1 = ttk.Button(popup,text="OK",command = popup.destroy)
             B1.pack()
@@ -143,6 +144,7 @@ def algorithm(d1,m1,y1,d2,m2,y2,rate1,model,carname,deposit):
         popup=tk.Tk()
         popup.wm_title("Invaild Date(s)")
         popup.geometry("550x200")
+        popup.resizable(False,False)
         label = ttk.Label(popup,text="Invalid Date(s)")
         label.pack(pady=10,anchor=CENTER)
         B1 = ttk.Button(popup,text="OK",command = popup.destroy)
@@ -156,44 +158,38 @@ def algorithm(d1,m1,y1,d2,m2,y2,rate1,model,carname,deposit):
         rate=int(rate1)
         grandtotal=deposit+rate*int(time.days+1)
 
-        if int(time.days+1)<=30:
-            if int(time.days+1)>=1:
-                    history=open('rental_history.txt','a')
+        if int(time.days+1)<=30 and int(time.days+1)>=1:
+            history=open('rental_history.txt','a')
 
-                    history.write('Collection date:'+str(d1)+'.'+str(m1)+'.'+str(y1)+'\n')
-                    history.write('Return date    :'+str(d2)+'.'+str(m2)+'.'+str(y2)+'\n')
-                    history.write('Car model      :'+carname+'\n')
-                    history.write('Deposit        :   '+str(deposit)+'\n')
-                    history.write('Rental Price   :   '+str(rate)+'x'+str(time.days+1)+'\n')
-                    history.write('***************************************\n')
-                    history.write('Grand Total    :   '+str(grandtotal)+'\n')
-                    history.write('***************************************\n')
-                    history.close()
-                    popup=tk.Tk()
-                    popup.wm_title("Thank you")
-                    popup.geometry("500x200")
-                    label_1 = ttk.Label(popup,text=("You wish to rent the " + carname + " for " + str(time.days+1) + 
-                                                    " day(s)\n"+ "The grand total would of renting the " + carname + " would be RM " + str(grandtotal)+ "\n" +
-                                                    "The transction data is being saved in a text file named 'rental_history' . "))
-                    label_1.pack(pady=10,anchor=CENTER)
-                    B1 = ttk.Button(popup,text="OK",command = popup.destroy)
-                    B1.pack()
-                    popup.mainloop()
-            else:
-                popup=tk.Tk()
-                popup.wm_title("Invaild Date")
-                popup.geometry("550x200")
-                label = ttk.Label(popup,text="Invalid time period, minimum number of days of rental should be 1 day")
-                label.pack(pady=10,anchor=CENTER)
-                B1 = ttk.Button(popup,text="OK",command = popup.destroy)
-                B1.pack()
-                popup.mainloop()
+            history.write('Collection date:'+str(d1)+'.'+str(m1)+'.'+str(y1)+'\n')
+            history.write('Return date    :'+str(d2)+'.'+str(m2)+'.'+str(y2)+'\n')
+            history.write('Car model      :'+carname+'\n')
+            history.write('Deposit        :   '+str(deposit)+'\n')
+            history.write('Rental Price   :   '+str(rate)+'x'+str(time.days+1)+'\n')
+            history.write('***************************************\n')
+            history.write('Grand Total    :   '+str(grandtotal)+'\n')
+            history.write('***************************************\n')
+            history.close()
+            popup=tk.Tk()
+            popup.wm_title("Thank you")
+            popup.geometry("550x200")
+            popup.resizable(False,False)
+            label = ttk.Label(popup,text=("You wish to rent the " + carname + " for " + str(time.days+1) + 
+                                            " day(s)\n"+ "The grand total would of renting the " + carname + " would be RM " + str(grandtotal)+ "\n" +
+                                            "The transction data is being saved in a text file named 'rental_history' . "))
+            label.config(font=("Arial",12))
+            label.pack(pady=10,anchor=CENTER)
+            B1 = ttk.Button(popup,text="OK",command = popup.destroy)
+            B1.pack()
+            popup.mainloop()
 
         else:
             popup=tk.Tk()
             popup.wm_title("Invaild Date")
             popup.geometry("550x200")
+            popup.resizable(False,False)
             label = ttk.Label(popup,text="Invalid time period, maximum number of days of rental should be 30 days")
+            label.config(font=("Arial",12))
             label.pack(pady=10,anchor=CENTER)
             B1 = ttk.Button(popup,text="OK",command = popup.destroy)
             B1.pack()
