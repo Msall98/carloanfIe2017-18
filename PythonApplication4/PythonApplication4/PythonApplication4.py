@@ -95,8 +95,8 @@ def algorithm(self,price,down_payment,time,interest_rate):
         Monthly_installment=(loanamount+Total_interest)/(time*12)
         history=open('loan.txt','a')
         history.write('********************************************************\n')
-        history.write('Car Price             :'+str(price)+'\n')
-        history.write('Down Payment          :'+str(down_payment)+'\n')
+        history.write('Car Price             :'+"{0:.2f}".format(float(price))+'\n')
+        history.write('Down Payment          :'+"{0:.2f}".format(float(down_payment))+'\n')
         history.write('Total Interest        :'+str(Total_interest)+'\n')
         history.write('Monthly Interest      :'+str(Monthly_interest)+'\n')
         history.write('Monthly Installment   :'+str(Monthly_installment)+'\n')
@@ -107,7 +107,7 @@ def algorithm(self,price,down_payment,time,interest_rate):
         self.popup.wm_title("Thank you")
         self.popup.geometry("400x125")
         self.popup.resizable(False,False)
-        label_1 = ttk.Label(self.popup,text=('Your monthly Installment for loaning RM '+str(price)+'\n with a down payment of RM '+str(down_payment)+
+        label_1 = ttk.Label(self.popup,text=('Your monthly Installment for loaning RM '+"{0:.2f}".format(float(price))+'\n with a down payment of RM '+"{0:.2f}".format(float(down_payment))+
                                              ' for '+str(time)+' year(s) is: \n RM '+"{0:.2f}".format(Monthly_installment) + " Records have been made and save into 'loan.txt' "))
         label_1.pack(pady=10,anchor=CENTER)
         B1 = ttk.Button(self.popup,text="OK",command = self.fixwindow)
