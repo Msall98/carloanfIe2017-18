@@ -55,11 +55,11 @@ class LoanCalculator:
         # Quote from Jonathan Goh,The Cat ==> "This is error one: self.carloan.trace("w",self.updatesecondoptionbox(national))"
         self.carloan.trace("w",lambda *args: self.updatesecondoptionbox(national)) # Jonathan Goh ==> "This is correct."
         self.carloanomenu=OptionMenu(self.window,self.carloan,*self.carloanlist)
-        self.carloanomenu.grid(row=7,column=2)
+        self.carloanomenu.grid(row=7,column=2,sticky="ew")
         self.carloanb = StringVar()
         a=self.carloan.get()
         self.carloanlistb=["Proton Saga (1.3cc) (RM135/day)"]
-        self.carlonmenub=OptionMenu(self.window,self.carloanb,*self.carloanlistb).grid(row=8,column=2)
+        self.carlonmenub=OptionMenu(self.window,self.carloanb,*self.carloanlistb).grid(row=8,column=2,sticky="ew")
         self.carloanb.set(self.carloanlistb[0])
         #Of Course, Some Buttons :) ...
         btComputePayment = Button(self.window, text = "Compute Payment", 
@@ -136,7 +136,7 @@ class LoanCalculator:
             self.carlonmenub=OptionMenu(self.window,self.carloanb,*self.carloanlistb).grid(row=8,column=2)
             national=1
             return int(national)
-        elif b=="Foreign car (RM 300 Deposit)":
+        else:
             self.carloanlistb=["Toyota Vios (1.5cc) (RM180/day)","Honda Civic (2.0cc) (RM300/day)","Hyundai Starex (2.5cc) (RM500/day)"]
             self.carlonmenub=OptionMenu(self.window,self.carloanb,*self.carloanlistb).grid(row=8,column=2)
             national=0
