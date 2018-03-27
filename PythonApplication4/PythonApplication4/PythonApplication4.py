@@ -93,6 +93,15 @@ def algorithm(self,price,down_payment,time,interest_rate):
         Total_interest=(float(interest_rate)/100)*time*loanamount
         Monthly_interest=Total_interest/(time*12)
         Monthly_installment=(loanamount+Total_interest)/(time*12)
+        history=open('loan.txt','a')
+        history.write('********************************************************\n')
+        history.write('Car Price             :'+str(price)+'\n')
+        history.write('Down Payment          :'+str(down_payment)+'\n')
+        history.write('Total Interest        :'+str(Total_interest)+'\n')
+        history.write('Monthly Interest      :'+str(Monthly_interest)+'\n')
+        history.write('Monthly Installment   :'+str(Monthly_installment)+'\n')
+        history.write('********************************************************\n')
+        history.close()
         self.window.withdraw()
         self.popup=tk.Tk()
         self.popup.wm_title("Thank you")
@@ -103,6 +112,7 @@ def algorithm(self,price,down_payment,time,interest_rate):
         B1 = ttk.Button(self.popup,text="OK",command = self.fixwindow)
         B1.pack()
         self.popup.mainloop()
+
     else:
         self.window.withdraw()
         self.popup=tk.Tk()
