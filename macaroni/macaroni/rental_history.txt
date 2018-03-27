@@ -222,3 +222,19 @@ Rental Price   :   180x4
 ***************************************
 Grand Total    :   1020
 ***************************************
+Collection date:23.04.2018
+Return date    :25.04.2018
+Car model      :Proton Saga (1.3cc)
+Deposit        :   100
+Rental Price   :   135x3
+***************************************
+Grand Total    :   505
+***************************************
+Collection date:23.04.2018
+Return date    :25.04.2018
+Car model      :Toyota Vios (1.5cc)
+Deposit        :   300
+Rental Price   :   180x3
+***************************************
+Grand Total    :   840
+***************************************
