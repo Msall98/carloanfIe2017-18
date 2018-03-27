@@ -52,25 +52,16 @@ class LoanCalculator:
         down_payment=down_payment1.replace(',','')
         time=int(self.carloan.get())
         interest_rate=self.interest.get()
-        if price.isalpha()==True or interest_rate.isalpha()==True or down_payment.isalpha==True:
-                popup=tk.Tk()
-                popup.wm_title("Invaild Information")
-                popup.geometry("550x200")
-                popup.resizable(False,False)
-                label = ttk.Label(popup,text="Only numbers are allowed as inputs")
-                label.config(font=("Arial",12))
-                label.pack(pady=10,anchor=CENTER)
-                B1 = ttk.Button(popup,text="OK",command = popup.destroy)
-                B1.pack()
-                popup.mainloop()            
+        if price.replace('.','',1).isdigit()==True and interest_rate.replace('.','',1).isdigit()==True and down_payment.replace('.','',1).isdigit()==True:
+            algorithm(price,down_payment,time,interest_rate)           
 
 
-        elif price=='':
+        elif price=='' or down_payment=='' or interest_rate=='':
             popup=tk.Tk()
-            popup.wm_title("Missing Information")
+            popup.wm_title("Error")
             popup.geometry("550x200")
             popup.resizable(False,False)
-            label = ttk.Label(popup,text="Please input car price")
+            label = ttk.Label(popup,text="Missing Information")
             label.config(font=("Arial",12))
             label.pack(pady=10,anchor=CENTER)
             B1 = ttk.Button(popup,text="OK",command = popup.destroy)
@@ -78,7 +69,16 @@ class LoanCalculator:
             popup.mainloop()
 
         else:
-            algorithm(price,down_payment,time,interest_rate)
+                popup=tk.Tk()
+                popup.wm_title("Invaild Information")
+                popup.geometry("550x200")
+                popup.resizable(False,False)
+                label = ttk.Label(popup,text="Invalid information entered")
+                label.config(font=("Arial",12))
+                label.pack(pady=10,anchor=CENTER)
+                B1 = ttk.Button(popup,text="OK",command = popup.destroy)
+                B1.pack()
+                popup.mainloop()            
 
 def algorithm(price,down_payment,time,interest_rate):
     if float(price)>=float(down_payment):
@@ -108,4 +108,3 @@ def algorithm(price,down_payment,time,interest_rate):
         popup.mainloop()
 
 LoanCalculator()# Create GUI
-
