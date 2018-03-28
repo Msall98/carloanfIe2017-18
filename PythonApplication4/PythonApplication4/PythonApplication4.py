@@ -156,3 +156,4 @@ def algorithm(self,price,down_payment,time,interest_rate):
 
 
 LoanCalculator()# Create GUI
+
