@@ -57,8 +57,35 @@ class LoanCalculator:
         time=int(self.carloan.get())
         interest_rate=self.interest.get()
         if price.replace('.','',1).isdigit()==True and interest_rate.replace('.','',1).isdigit()==True and down_payment.replace('.','',1).isdigit()==True:
-            algorithm(self,price,down_payment,time,interest_rate)           
-
+            if float(interest_rate)<=100:
+                if float(down_payment)>=(float(price)/20):
+                    algorithm(self,price,down_payment,time,interest_rate)
+                else:
+                    self.window.withdraw()
+                    self.popup=tk.Tk()
+                    self.popup.wm_title("Error")
+                    self.popup.geometry("550x200")
+                    self.popup.resizable(False,False)
+                    label = ttk.Label(self.popup,text='Down Payment should be at least 5% of the vehicle\'s cost.\n 5% of '+"{0:.2f}".format(float(price))+' is '+"{0:.2f}".format(float(price)/20))
+                    label.config(font=("Arial",12))
+                    label.pack(pady=10,anchor=CENTER)
+                    B1 = ttk.Button(self.popup,text="OK",command = self.fixwindow)
+                    B1.pack()
+                
+                    self.popup.mainloop()
+            else:
+                self.window.withdraw()
+                self.popup=tk.Tk()
+                self.popup.wm_title("Error")
+                self.popup.geometry("550x200")
+                self.popup.resizable(False,False)
+                label = ttk.Label(self.popup,text="One or more of the input information \n exceeds the limit of the program.")
+                label.config(font=("Arial",12))
+                label.pack(pady=10,anchor=CENTER)
+                B1 = ttk.Button(self.popup,text="OK",command = self.fixwindow)
+                B1.pack()
+            
+                self.popup.mainloop()
 
         elif price=='' or down_payment=='' or interest_rate=='':
             self.window.withdraw()
@@ -108,7 +135,7 @@ def algorithm(self,price,down_payment,time,interest_rate):
         self.popup.geometry("400x125")
         self.popup.resizable(False,False)
         label_1 = ttk.Label(self.popup,text=('Your monthly Installment for loaning RM '+"{0:.2f}".format(float(price))+'\n with a down payment of RM '+"{0:.2f}".format(float(down_payment))+
-                                             ' for '+str(time)+' year(s) is: \n RM '+"{0:.2f}".format(Monthly_installment) + " Records have been made and save into 'loan.txt' "))
+                                             ' for '+str(time)+' year(s) is: \n RM '+"{0:.2f}".format(float(Monthly_installment)))) + " Records have been made and save into 'loan.txt' "))
         label_1.pack(pady=10,anchor=CENTER)
         B1 = ttk.Button(self.popup,text="OK",command = self.fixwindow)
         B1.pack()
