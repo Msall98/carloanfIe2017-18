@@ -135,7 +135,7 @@ def algorithm(self,price,down_payment,time,interest_rate):
         self.popup.geometry("400x125")
         self.popup.resizable(False,False)
         label_1 = ttk.Label(self.popup,text=('Your monthly Installment for loaning RM '+"{0:.2f}".format(float(price))+'\n with a down payment of RM '+"{0:.2f}".format(float(down_payment))+
-                                             ' for '+str(time)+' year(s) is: \n RM '+"{0:.2f}".format(float(Monthly_installment)))) + " Records have been made and save into 'loan.txt' "))
+                                             ' for '+str(time)+' year(s) is: \n RM '+"{0:.2f}".format(float(Monthly_installment)) + " Records have been made and save into 'loan.txt' "))
         label_1.pack(pady=10,anchor=CENTER)
         B1 = ttk.Button(self.popup,text="OK",command = self.fixwindow)
         B1.pack()
