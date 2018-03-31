@@ -1,5 +1,6 @@
 from tkinter import * # Import tkinter
 from tkinter import ttk
+from datetime import date
 import tkinter as tk    
 import sys 
 
@@ -120,8 +121,10 @@ def algorithm(self,price,down_payment,time,interest_rate):
         Total_interest=(float(interest_rate)/100)*time*loanamount
         Monthly_interest=Total_interest/(time*12)
         Monthly_installment=(loanamount+Total_interest)/(time*12)
+        x=str(date.today())
         history=open('loan.txt','a')
         history.write('********************************************************\n')
+        history.write('Date (YYYY-MM-DD)        :'+x+'\n')
         history.write('Car Price (RM)           :'+"{0:.2f}".format(float(price))+'\n')
         history.write('Down Payment (RM)        :'+"{0:.2f}".format(float(down_payment))+'\n')
         history.write('Loan Period (In Years)   :'+str(time)+'\n')

@@ -103,3 +103,20 @@ Total Interest        :20412.0
 Monthly Interest      :243.0
 Monthly Installment   :1400.142857142857
 ********************************************************
+********************************************************
+Date (YYYY-MM-DD)        :2018-03-31Car Price (RM)           :150000.00
+Down Payment (RM)        :20000.00
+Loan Period (In Years)   :1
+Total Interest (RM)      :6500.0
+Monthly Interest (RM)    :541.6666666666666
+Monthly Installment (RM) :11375.0
+********************************************************
+********************************************************
+Date (YYYY-MM-DD)        :2018-03-31
+Car Price (RM)           :150000.00
+Down Payment (RM)        :20000.00
+Loan Period (In Years)   :1
+Total Interest (RM)      :7800.0
+Monthly Interest (RM)    :650.0
+Monthly Installment (RM) :11483.333333333334
+********************************************************
