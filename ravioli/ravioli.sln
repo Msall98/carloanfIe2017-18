@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2002
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "ravioli", "ravioli\ravioli.pyproj", "{D5EBEF04-CE06-4EB8-A3C1-83AB8FEE6011}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D5EBEF04-CE06-4EB8-A3C1-83AB8FEE6011}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5EBEF04-CE06-4EB8-A3C1-83AB8FEE6011}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4909CF1F-657D-4761-A868-3F1EE2B7D81D}
+	EndGlobalSection
+EndGlobal

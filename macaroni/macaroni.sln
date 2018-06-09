@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2002
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "macaroni", "macaroni\macaroni.pyproj", "{5E6AC8B3-B405-4AC5-87DC-FDCDA284C192}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5E6AC8B3-B405-4AC5-87DC-FDCDA284C192}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E6AC8B3-B405-4AC5-87DC-FDCDA284C192}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8352379B-22AB-451F-874D-CC60759E03AC}
+	EndGlobalSection
+EndGlobal

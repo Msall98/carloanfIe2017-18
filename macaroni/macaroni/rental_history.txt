@@ -1,0 +1,240 @@
+Collection date:23.06.2018
+Return date    :28.06.2018
+Car model      :Proton Saga (1.3cc)
+Deposit        :   100
+Rental Price   :   135x6
+***************************************
+Grand Total    :   910
+***************************************
+Collection date:23.06.2018
+Return date    :28.06.2018
+Car model      :Proton Saga (1.3cc)
+Deposit        :   100
+Rental Price   :   135x6
+***************************************
+Grand Total    :   910
+***************************************
+Collection date:23.06.2018
+Return date    :28.06.2018
+Car model      :Toyota Vios (1.5cc)
+Deposit        :   300
+Rental Price   :   180x6
+***************************************
+Grand Total    :   1380
+***************************************
+Collection date:23.06.2018
+Return date    :28.06.2018
+Car model      :Honda Civic (2.0cc)
+Deposit        :   300
+Rental Price   :   300x6
+***************************************
+Grand Total    :   2100
+***************************************
+Collection date:12.03.2018
+Return date    :15.03.2018
+Car model      :Proton Saga (1.3cc)
+Deposit        :   100
+Rental Price   :   135x4
+***************************************
+Grand Total    :   640
+***************************************
+Collection date:23.09.2018
+Return date    :25.09.2018
+Car model      :Proton Saga (1.3cc)
+Deposit        :   100
+Rental Price   :   135x3
+***************************************
+Grand Total    :   505
+***************************************
+Collection date:09.09.2018
+Return date    :12.09.2018
+Car model      :Proton Saga (1.3cc)
+Deposit        :   100
+Rental Price   :   135x4
+***************************************
+Grand Total    :   640
+***************************************
+Collection date:12.09.2018
+Return date    :15.09.2018
+Car model      :Toyota Vios (1.5cc)
+Deposit        :   300
+Rental Price   :   180x4
+***************************************
+Grand Total    :   1020
+***************************************
+Collection date:23.04.2018
+Return date    :24.04.2018
+Car model      :Toyota Vios (1.5cc)
+Deposit        :   300
+Rental Price   :   180x2
+***************************************
+Grand Total    :   660
+***************************************
+Collection date:23.04.2018
+Return date    :05.05.2018
+Car model      :Proton Saga (1.3cc)
+Deposit        :   100
+Rental Price   :   135x13
+***************************************
+Grand Total    :   1855
+***************************************
+Collection date:5.5.2018
+Return date    :5.5.2018
+Car model      :Proton Saga (1.3cc)
+Deposit        :   100
+Rental Price   :   135x1
+***************************************
+Grand Total    :   235
+***************************************
+Collection date:5.5.2018
+Return date    :5.5.2018
+Car model      :Toyota Vios (1.5cc)
+Deposit        :   300
+Rental Price   :   180x1
+***************************************
+Grand Total    :   480
+***************************************
+Collection date:5.5.2018
+Return date    :5.5.2018
+Car model      :Honda Civic (2.0cc)
+Deposit        :   300
+Rental Price   :   300x1
+***************************************
+Grand Total    :   600
+***************************************
+Collection date:5.5.2018
+Return date    :5.5.2018
+Car model      :Hyundai Starex (2.5cc)
+Deposit        :   300
+Rental Price   :   500x1
+***************************************
+Grand Total    :   800
+***************************************
+Collection date:5.5.2018
+Return date    :5.5.2018
+Car model      :Proton Saga (1.3cc)
+Deposit        :   100
+Rental Price   :   135x1
+***************************************
+Grand Total    :   235
+***************************************
+Collection date:5.5.2018
+Return date    :5.5.2018
+Car model      :Honda Civic (2.0cc)
+Deposit        :   300
+Rental Price   :   300x1
+***************************************
+Grand Total    :   600
+***************************************
+Collection date:5.5.2018
+Return date    :5.5.2018
+Car model      :Proton Saga (1.3cc)
+Deposit        :   100
+Rental Price   :   135x1
+***************************************
+Grand Total    :   235
+***************************************
+Collection date:5.5.2018
+Return date    :5.5.2018
+Car model      :Honda Civic (2.0cc)
+Deposit        :   300
+Rental Price   :   300x1
+***************************************
+Grand Total    :   600
+***************************************
+Collection date:5.5.2018
+Return date    :5.5.2018
+Car model      :Proton Saga (1.3cc)
+Deposit        :   100
+Rental Price   :   135x1
+***************************************
+Grand Total    :   235
+***************************************
+Collection date:5.5.2018
+Return date    :5.5.2018
+Car model      :Proton Saga (1.3cc)
+Deposit        :   100
+Rental Price   :   135x1
+***************************************
+Grand Total    :   235
+***************************************
+Collection date:5.5.2018
+Return date    :18.5.2018
+Car model      :Proton Saga (1.3cc)
+Deposit        :   100
+Rental Price   :   135x14
+***************************************
+Grand Total    :   1990
+***************************************
+Collection date:5.5.2018
+Return date    :5.5.2018
+Car model      :Proton Saga (1.3cc)
+Deposit        :   100
+Rental Price   :   135x1
+***************************************
+Grand Total    :   235
+***************************************
+Collection date:9.9.2018
+Return date    :9.9.2018
+Car model      :Proton Saga (1.3cc)
+Deposit        :   100
+Rental Price   :   135x1
+***************************************
+Grand Total    :   235
+***************************************
+Collection date:9.9.2018
+Return date    :9.9.2018
+Car model      :Proton Saga (1.3cc)
+Deposit        :   100
+Rental Price   :   135x1
+***************************************
+Grand Total    :   235
+***************************************
+Collection date:9.9.2018
+Return date    :9.9.2018
+Car model      :Proton Saga (1.3cc)
+Deposit        :   100
+Rental Price   :   135x1
+***************************************
+Grand Total    :   235
+***************************************
+Collection date:9.9.2018
+Return date    :9.9.2018
+Car model      :Proton Saga (1.3cc)
+Deposit        :   100
+Rental Price   :   135x1
+***************************************
+Grand Total    :   235
+***************************************
+Collection date:9.9.2018
+Return date    :9.9.2018
+Car model      :Proton Saga (1.3cc)
+Deposit        :   100
+Rental Price   :   135x1
+***************************************
+Grand Total    :   235
+***************************************
+Collection date:12.12.2018
+Return date    :15.12.2018
+Car model      :Toyota Vios (1.5cc)
+Deposit        :   300
+Rental Price   :   180x4
+***************************************
+Grand Total    :   1020
+***************************************
+Collection date:23.04.2018
+Return date    :25.04.2018
+Car model      :Proton Saga (1.3cc)
+Deposit        :   100
+Rental Price   :   135x3
+***************************************
+Grand Total    :   505
+***************************************
+Collection date:23.04.2018
+Return date    :25.04.2018
+Car model      :Toyota Vios (1.5cc)
+Deposit        :   300
+Rental Price   :   180x3
+***************************************
+Grand Total    :   840
+***************************************
