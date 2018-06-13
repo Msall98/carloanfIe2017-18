@@ -2,7 +2,7 @@
 Assignment from Introduction to Computer Programming in FiE UNMC (2017/18)
 
 
-As usual, there always an Assignment from the programming class and I with my teammate willing to share the code that we have completed for the assignment. 
+As usual, there always an Assignment from the programming class and I with my teammate (Eu Boon) willing to share the code that we have completed for the assignment. 
 
 ***************************************************************************
 P/S: If you’re Da*m lazy, just go to the bottom of the page.
