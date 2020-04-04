@@ -2,15 +2,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>bed85a3b-4180-40fb-981a-f040bf757071</ProjectGuid>
+    <ProjectGuid>9930589b-4742-4682-8238-fb8449e9ad67</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Interface_Alpha_Stage.py</StartupFile>
+    <StartupFile>With_GUI_Framework_2.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>Interface_Alpha_Stage</Name>
-    <RootNamespace>Interface_Alpha_Stage</RootNamespace>
+    <Name>With_GUI_Framework_2</Name>
+    <RootNamespace>With_GUI_Framework_2</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,10 +21,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Interface_Alpha_Stage.py" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="carloangui.kv" />
+    <Compile Include="With_GUI_Framework_2.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
